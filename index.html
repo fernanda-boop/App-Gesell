@@ -1,0 +1,90 @@
+/* Configuración de Colores y Fuentes */
+:root {
+--violeta-mp: #4f46e5;
+--verde-anivi: #10b981;
+--fondo: #f3f4f6;
+}
+
+body {
+font-family: 'Segoe UI', sans-serif;
+background-color: var(--fondo);
+margin: 0;
+padding: 0;
+}
+
+.main-header {
+background: linear-gradient(135deg, #4f46e5, #7c3aed);
+color: white;
+padding: 25px;
+text-align: center;
+}
+
+.container {
+max-width: 900px;
+margin: 20px auto;
+padding: 20px;
+}
+
+.card {
+background: white;
+padding: 20px;
+border-radius: 12px;
+margin-bottom: 25px;
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Clases para corregir errores de VS Code */
+.hidden {
+display: none;
+}
+
+.input-group {
+display: flex;
+flex-direction: column;
+margin-bottom: 15px;
+}
+
+label {
+font-weight: 600;
+margin-bottom: 5px;
+color: #374151;
+}
+
+input, textarea {
+padding: 12px;
+border: 1px solid #d1d5db;
+border-radius: 8px;
+font-size: 15px;
+}
+
+.grid-form {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 15px;
+}
+
+.btn-principal {
+background-color: var(--verde-anivi);
+color: white;
+border: none;
+padding: 15px;
+border-radius: 8px;
+font-weight: bold;
+cursor: pointer;
+width: 100%;
+}
+
+.btn-secundario {
+background-color: var(--violeta-mp);
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 6px;
+cursor: pointer;
+}
+
+.mic-status-text {
+font-size: 13px;
+color: #6b7280;
+margin-left: 10px;
+}

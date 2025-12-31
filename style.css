@@ -1,0 +1,43 @@
+/* Solución a los errores amarillos (Inline Styles) */
+.hidden {
+    display: none;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #4b5563;
+}
+
+.header-conclusion {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.btn-secundario {
+    background-color: #10b981; 
+    color: white; 
+    border: none; 
+    padding: 8px 15px; 
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+.btn-verde-analizar {
+    padding: 15px 30px;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
