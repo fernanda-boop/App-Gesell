@@ -1,43 +1,41 @@
-/* Solución a los errores amarillos (Inline Styles) */
-.hidden {
-    display: none;
+/* Estilos para limpiar el HTML */
+.panel-teoria-estilo { 
+    background-color: #f0f4ff; 
+    margin-top: 15px; 
+    border-left: 5px solid #4f46e5;
 }
 
-.input-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+.mic-container { 
+    margin-bottom: 15px; 
+    display: flex; 
+    align-items: center; 
 }
 
-.input-group label {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #4b5563;
+.texto-pequeno { 
+    font-size: 13px; 
+    color: #6b7280; 
+    margin-left: 10px; 
 }
 
-.header-conclusion {
+.flex-header { 
     display: flex; 
     justify-content: space-between; 
-    align-items: center;
-    margin-bottom: 15px;
+    align-items: center; 
+    margin-bottom: 15px; 
 }
 
-.btn-secundario {
-    background-color: #10b981; 
+.grid-form-footer { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
+    margin-top: 15px; 
+}
+
+.btn-descargar { 
+    background-color: #374151; 
     color: white; 
     border: none; 
-    padding: 8px 15px; 
-    border-radius: 5px; 
-    cursor: pointer;
-}
-
-.btn-verde-analizar {
-    padding: 15px 30px;
-    background-color: #10b981;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
+    padding: 10px; 
+    border-radius: 6px; 
+    cursor: pointer; 
 }
