@@ -33,14 +33,14 @@
                     <input type="text" id="evaluador">
                 </div>
             </div>
-            <div id="panel-teoria" class="card hidden panel-especial"></div>
+            <div id="panel-teoria" class="card hidden panel-teoria-estilo"></div>
         </section>
 
         <section class="card">
             <h2>Relato de Cámara Gesell</h2>
-            <div class="mic-controls">
+            <div class="mic-container">
                 <button id="btn-mic" class="btn-secundario">🎤 Iniciar Dictado</button>
-                <span id="mic-status" class="status-text">Micrófono inactivo</span>
+                <span id="mic-status" class="texto-pequeno">Micrófono inactivo</span>
             </div>
             <div class="input-group">
                 <label for="output-texto">Transcripción del Testimonio</label>
@@ -52,7 +52,7 @@
         <section id="contenedor-sugerencias"></section>
 
         <section class="card">
-            <div class="header-conclusion">
+            <div class="flex-header">
                 <h2>Informe Pericial Final</h2>
                 <button id="btn-generar" class="btn-secundario">Generar Texto</button>
             </div>
@@ -61,11 +61,12 @@
                 <textarea id="conclusion-textarea" rows="12"></textarea>
             </div>
             <div class="grid-form-footer">
-                <button type="button" class="btn-secundario">Guardar en Base</button>
+                <button type="button" class="btn-guardar">Guardar en Base</button>
                 <button type="button" class="btn-descargar" onclick="window.print()">Imprimir / PDF</button>
             </div>
         </section>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
