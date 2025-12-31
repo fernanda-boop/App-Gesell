@@ -42,17 +42,20 @@ const baseConocimiento = {
     ]
 };
 
-// --- MOTOR DE TRANSCRIPCIÓN (INTERIM) ---
+// --- MOTOR DE TRANSCRIPCIÓN PARA CABLE VIRTUAL ---
 const btnMic = document.getElementById('btn-mic');
 const outputTexto = document.getElementById('output-texto');
 const statusMic = document.getElementById('mic-status');
+
 const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 if (Recognition) {
     const recognition = new Recognition();
+    
+    // Configuración para máxima sensibilidad
     recognition.lang = 'es-AR';
-    recognition.continuous = true;
-    recognition.interimResults = true;
+    recognition.continuous = true; // No se detiene al haber silencios
+    recognition.interimResults = true; // Muestra el texto mientras procesa
 
     btnMic.onclick = () => {
         if (!btnMic.classList.contains('grabando')) {
@@ -65,27 +68,41 @@ if (Recognition) {
     recognition.onstart = () => {
         btnMic.classList.add('grabando');
         btnMic.innerHTML = "🛑 Detener Escucha";
-        statusMic.innerText = "Escuchando y transcribiendo...";
+        statusMic.innerText = "Escuchando audio interno (VB-CABLE)...";
     };
 
     recognition.onresult = (event) => {
-        let finalBatch = '';
+        let textoFinal = '';
         for (let i = event.resultIndex; i < event.results.length; ++i) {
             if (event.results[i].isFinal) {
-                finalBatch += event.results[i][0].transcript + '. ';
+                textoFinal += event.results[i][0].transcript + '. ';
             }
         }
-        outputTexto.value += finalBatch;
-        outputTexto.scrollTop = outputTexto.scrollHeight;
+        // Escribe el texto en el cuadro automáticamente
+        if (textoFinal) {
+            outputTexto.value += textoFinal;
+            // Scroll automático para ver lo nuevo
+            outputTexto.scrollTop = outputTexto.scrollHeight;
+        }
     };
 
     recognition.onend = () => {
-        btnMic.classList.remove('grabando');
-        btnMic.innerHTML = "🎤 Iniciar Transcripción";
-        statusMic.innerText = "Micrófono apagado.";
+        // Reinicio automático: Si se corta solo, vuelve a arrancar
+        if (btnMic.classList.contains('grabando')) {
+            recognition.start();
+        } else {
+            statusMic.innerText = "Micrófono en espera";
+            btnMic.innerHTML = "🎤 Iniciar Dictado";
+        }
+    };
+
+    recognition.onerror = (event) => {
+        console.error("Error de reconocimiento:", event.error);
+        if (event.error === 'network') {
+            statusMic.innerText = "Error de red. Verifica internet.";
+        }
     };
 }
-
 // --- LOGICA DE EDAD ---
 document.getElementById('input-edad').addEventListener('input', (e) => {
     const edad = parseInt(e.target.value);
@@ -133,3 +150,4 @@ document.getElementById('btn-analizar').onclick = () => {
         `Índice de realidad: ${porcentaje}%\n\n` +
         `Detalle: ${listaEncontrados.join(", ")}.`;
 };
+
